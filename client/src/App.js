@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import GenrePage from './pages/GenrePage'
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
+import AddSongPage from './pages/addSongPage'
 
 class App extends Component {
   constructor() {
@@ -30,6 +31,12 @@ class App extends Component {
             path="/"
             component={() => <GenrePage genres={this.state.genres}></GenrePage>}
           />
+          <Route path="/:genre" component={() => <ArtistPage />} />
+          <Route path="/song/:genre" component={() => <SongList />} />
+          <Route path="/artist/:id" component={() => <ArtistPage />} />
+          <Route path="/song/:id" component={() => <SongPage />} />
+          <Route path="/artist/add" component={() => <AddArtistPage />} />
+          <Route path="/song/add" component={() => <AddSongPage />} />
         </Switch>
       </div>
     )
