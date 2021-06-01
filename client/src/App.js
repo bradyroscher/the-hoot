@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 // import Header from './components/Header'
 import GenrePage from './pages/GenrePage'
+import SongList from './pages/SongList'
+import ArtistList from './pages/ArtistList'
+import ArtistPage from './pages/ArtistPage'
+import SongPage from './pages/SongPage'
+import AddArtistPage from './pages/AddArtistPage'
+import AddSongPage from './pages/addSongPage'
+
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
-import AddSongPage from './pages/addSongPage'
 
 class App extends Component {
   constructor() {
@@ -31,7 +37,7 @@ class App extends Component {
             path="/"
             component={() => <GenrePage genres={this.state.genres}></GenrePage>}
           />
-          <Route path="/:genre" component={() => <ArtistPage />} />
+          <Route path="/artist/:genre" component={() => <ArtistList />} />
           <Route path="/song/:genre" component={() => <SongList />} />
           <Route path="/artist/:id" component={() => <ArtistPage />} />
           <Route path="/song/:id" component={() => <SongPage />} />
