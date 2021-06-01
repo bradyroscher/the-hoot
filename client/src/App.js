@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+// import Header from './components/Header'
+import GenrePage from './pages/GenrePage'
+import './App.css'
+import { Switch, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      genres: [
+        { name: 'Hip-Hop', img: '' },
+        { name: 'R&B', img: '' },
+        { name: 'Pop', img: '' },
+        { name: 'Rock', img: '' },
+        { name: 'Jazz', img: '' },
+        { name: 'Soul', img: '' },
+        { name: 'Electronic', img: '' },
+        { name: 'Country', img: '' }
+      ]
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Switch>
+          <Route
+            exact
+            path="/"
+            component={() => <GenrePage genres={this.state.genres}></GenrePage>}
+          />
+        </Switch>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

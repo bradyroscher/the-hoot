@@ -13,6 +13,7 @@ const getArtistByGenre = async (req, res) => {
     res.status(500).send(error.message)
   }
 }
+
 const getSongsByArtist = async (req, res) => {
   try {
     const { artistID } = req.params
@@ -25,6 +26,7 @@ const getSongsByArtist = async (req, res) => {
     res.status(500).send(error.message)
   }
 }
+
 const getSongsByGenre = async (req, res) => {
   try {
     const { genre } = req.params
@@ -37,6 +39,7 @@ const getSongsByGenre = async (req, res) => {
     res.status(500).send(error.message)
   }
 }
+
 const addArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -46,9 +49,42 @@ const addArtist = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
-const addSong = async () => {}
-const deleteArtist = async () => {}
-const deleteSong = async () => {}
+
+const addSong = async (req, res) => {
+  try {
+    const song = await new Song(req.body)
+    await song.save()
+    return res.status(201).json({ song })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteArtist = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Artist.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Artist deleted')
+    }
+    throw new Error('Artist not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteSong = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Song.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Song deleted')
+    }
+    throw new Error('Song not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 
 module.exports = {
   getArtistByGenre,
