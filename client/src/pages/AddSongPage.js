@@ -5,3 +5,5 @@ class AddSongPage extends Component {
     return <div></div>
   }
 }
+
+export default AddSongPage

@@ -6,7 +6,8 @@ import ArtistList from './pages/ArtistList'
 import ArtistPage from './pages/ArtistPage'
 import SongPage from './pages/SongPage'
 import AddArtistPage from './pages/AddArtistPage'
-import AddSongPage from './pages/addSongPage'
+import AddSongPage from './pages/AddSongPage'
+import BASE_URL from './globals'
 
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
@@ -29,6 +30,8 @@ class App extends Component {
     }
   }
 
+  // getArtistsByGenre = () =>
+
   render() {
     return (
       <div className="App">
@@ -36,9 +39,14 @@ class App extends Component {
           <Route
             exact
             path="/"
-            component={() => <GenrePage genres={this.state.genres}></GenrePage>}
+            component={(props) => (
+              <GenrePage {...props} genres={this.state.genres}></GenrePage>
+            )}
           />
-          <Route path="/artist/:genre" component={() => <ArtistList />} />
+          <Route
+            path="/artist/:genre"
+            component={(props) => <ArtistList {...props} />}
+          />
           <Route path="/song/:genre" component={() => <SongList />} />
           <Route path="/artist/:id" component={() => <ArtistPage />} />
           <Route path="/song/:id" component={() => <SongPage />} />
