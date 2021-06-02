@@ -6,16 +6,16 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
   const songs = [
-    // {
-    //   name: 'HUMBLE.',
-    //   artist: 'Kendrick Lamar',
-    //   artistID: new mongoose.mongo.ObjectId('60b7a020d609c731a03a7715'),
-    //   album: 'DAMN.',
-    //   coverArt: 'https://i.imgur.com/rWTkmQk.jpg',
-    //   genre: 'Hip-Hop',
-    //   description:
-    //     "'Humble' (stylized as 'HUMBLE.') is a song by American rapper Kendrick Lamar. It was released on March 30, 2017, by Top Dawg Entertainment, Aftermath Entertainment and Interscope Records. The song was written by Lamar and Mike Will Made It, and produced by the latter. It was provided to rhythmic contemporary radio as the lead single from Lamar's fourth studio album, Damn. 'Humble' is Lamar's second number-one single on the US Billboard Hot 100 after 'Bad Blood' and his first as a lead artist. The song received four nominations at the 60th Annual Grammy Awards, including, Record of the Year, Best Rap Performance, Best Rap Song, and Best Music Video, winning the latter three."
-    // },
+    {
+      name: 'HUMBLE.',
+      artist: 'Kendrick Lamar',
+      artistID: new mongoose.mongo.ObjectId('60b7a020d609c731a03a7715'),
+      album: 'DAMN.',
+      coverArt: 'https://i.imgur.com/rWTkmQk.jpg',
+      genre: 'Hip-Hop',
+      description:
+        "'Humble' (stylized as 'HUMBLE.') is a song by American rapper Kendrick Lamar. It was released on March 30, 2017, by Top Dawg Entertainment, Aftermath Entertainment and Interscope Records. The song was written by Lamar and Mike Will Made It, and produced by the latter. It was provided to rhythmic contemporary radio as the lead single from Lamar's fourth studio album, Damn. 'Humble' is Lamar's second number-one single on the US Billboard Hot 100 after 'Bad Blood' and his first as a lead artist. The song received four nominations at the 60th Annual Grammy Awards, including, Record of the Year, Best Rap Performance, Best Rap Song, and Best Music Video, winning the latter three."
+    }
     {
       name: 'Lucid Dreams',
       artist: 'Juice WRLD',

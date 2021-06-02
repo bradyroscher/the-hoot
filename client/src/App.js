@@ -20,8 +20,8 @@ class App extends Component {
       genres: [
         { name: 'Hip-Hop', img: 'https://i.imgur.com/KJv60wu.png' },
         { name: 'R&B', img: 'https://i.imgur.com/erEhGY3.png' },
-        { name: 'Pop', img: 'https://i.imgur.com/WtXipHB.png' },
         { name: 'Rock', img: 'https://i.imgur.com/aimEKwb.png' },
+        { name: 'Pop', img: 'https://i.imgur.com/WtXipHB.png' },
         { name: 'Jazz', img: 'https://i.imgur.com/DAG2O0v.png' },
         { name: 'Soul', img: 'https://i.imgur.com/hTkw6cG.png' },
         { name: 'Electronic', img: 'https://i.imgur.com/8OSa28n.png' },

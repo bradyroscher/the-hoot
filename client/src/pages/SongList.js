@@ -21,8 +21,8 @@ class SongList extends Component {
     const res = await axios.get(
       `${BASE_URL}/song/${this.props.match.params.artistID}`
     )
+    console.log(res)
     this.setState({ songs: res.data })
-    console.log(this.state.songs)
   }
 
   getArtist = async () => {
