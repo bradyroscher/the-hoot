@@ -7,7 +7,7 @@ import ArtistPage from './pages/ArtistPage'
 import SongPage from './pages/SongPage'
 import AddArtistPage from './pages/AddArtistPage'
 import AddSongPage from './pages/AddSongPage'
-import BASE_URL from './globals'
+// import BASE_URL from './globals'
 
 import './App.css'
 import { Switch, Route } from 'react-router-dom'
@@ -47,7 +47,10 @@ class App extends Component {
             path="/artist/:genre"
             component={(props) => <ArtistList {...props} />}
           />
-          <Route path="/song/:genre" component={() => <SongList />} />
+          <Route
+            path="/song/:artistID"
+            component={(props) => <SongList {...props} />}
+          />
           <Route path="/artist/:id" component={() => <ArtistPage />} />
           <Route path="/song/:id" component={() => <SongPage />} />
           <Route path="/artist/add" component={() => <AddArtistPage />} />
