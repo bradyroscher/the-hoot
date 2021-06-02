@@ -40,6 +40,15 @@ class SongList extends Component {
         <div>
           <img src={this.state.artistImg} />
           <p>{this.state.artistDescription}</p>
+          <div
+            onClick={() =>
+              this.props.history.push(
+                `/song-add/${this.props.match.params.artistID}`
+              )
+            }
+          >
+            Don't see you're favorite song by this artist? Add it!
+          </div>
           {this.state.songs.map((song, index) => (
             <div
               key={index}
