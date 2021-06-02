@@ -1,24 +1,25 @@
 const db = require('../db')
 const Song = require('../models/song')
+const mongoose = require('mongoose')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
   const songs = [
-    {
-      name: 'HUMBLE.',
-      artist: 'Kendrick Lamar',
-      artistID: '60b66e1c41dbf60bdc30171d',
-      album: 'DAMN.',
-      coverArt: 'https://i.imgur.com/rWTkmQk.jpg',
-      genre: 'Hip-Hop',
-      description:
-        "'Humble' (stylized as 'HUMBLE.') is a song by American rapper Kendrick Lamar. It was released on March 30, 2017, by Top Dawg Entertainment, Aftermath Entertainment and Interscope Records. The song was written by Lamar and Mike Will Made It, and produced by the latter. It was provided to rhythmic contemporary radio as the lead single from Lamar's fourth studio album, Damn. 'Humble' is Lamar's second number-one single on the US Billboard Hot 100 after 'Bad Blood' and his first as a lead artist. The song received four nominations at the 60th Annual Grammy Awards, including, Record of the Year, Best Rap Performance, Best Rap Song, and Best Music Video, winning the latter three."
-    },
+    // {
+    //   name: 'HUMBLE.',
+    //   artist: 'Kendrick Lamar',
+    //   artistID: new mongoose.mongo.ObjectId('60b7a020d609c731a03a7715'),
+    //   album: 'DAMN.',
+    //   coverArt: 'https://i.imgur.com/rWTkmQk.jpg',
+    //   genre: 'Hip-Hop',
+    //   description:
+    //     "'Humble' (stylized as 'HUMBLE.') is a song by American rapper Kendrick Lamar. It was released on March 30, 2017, by Top Dawg Entertainment, Aftermath Entertainment and Interscope Records. The song was written by Lamar and Mike Will Made It, and produced by the latter. It was provided to rhythmic contemporary radio as the lead single from Lamar's fourth studio album, Damn. 'Humble' is Lamar's second number-one single on the US Billboard Hot 100 after 'Bad Blood' and his first as a lead artist. The song received four nominations at the 60th Annual Grammy Awards, including, Record of the Year, Best Rap Performance, Best Rap Song, and Best Music Video, winning the latter three."
+    // },
     {
       name: 'Lucid Dreams',
       artist: 'Juice WRLD',
-      artistID: '60b66e1c41dbf60bdc30171e',
+      artistID: '60b7a020d609c731a03a7716',
       album: 'Goodbye & Good Riddance',
       coverArt: 'https://i.imgur.com/z2KrTYn.jpg',
       genre: 'Hip-Hop',
@@ -28,7 +29,7 @@ const main = async () => {
     {
       name: 'telepatía',
       artist: 'Kali Uchis',
-      artistID: '60b66e1c41dbf60bdc30171f',
+      artistID: '60b7a020d609c731a03a7717',
       album: 'Sin Miedo (del Amor y Otros Demonios)',
       coverArt: 'https://i.imgur.com/SNamxEA.jpg',
       genre: 'R&B',
@@ -38,7 +39,7 @@ const main = async () => {
     {
       name: 'Bad Guy',
       artist: 'Billie Eilish',
-      artistID: '60b66e1c41dbf60bdc301720',
+      artistID: '60b7a020d609c731a03a7718',
       album: 'When We All Fall Asleep, Where Do We Go?',
       coverArt: 'https://i.imgur.com/i74n7K4.jpg',
       genre: 'Pop',

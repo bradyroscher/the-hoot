@@ -14,6 +14,19 @@ const getArtistByGenre = async (req, res) => {
   }
 }
 
+const getArtistByName = async (req, res) => {
+  try {
+    const { name } = req.params
+    const artists = await Artist.find({ name: name })
+    if (!artists) {
+      return res.status(404).send("Can't find any artists by that name")
+    }
+    res.status(200).json(artists)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
 // const getArtistByID = async (req, res) => {
 //   try {
 //     const { id } = req.params
@@ -79,6 +92,19 @@ const getSongsByGenre = async (req, res) => {
   }
 }
 
+const getSongsByName = async (req, res) => {
+  try {
+    const { name } = req.params
+    const songs = await Song.find({ name: name })
+    if (!songs) {
+      return status(404).send("Can't find any songs")
+    }
+    res.status(500).send(songs)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
 const addArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -127,9 +153,11 @@ const deleteSong = async (req, res) => {
 
 module.exports = {
   getArtistByGenre,
+  getArtistByName,
   getArtistByID,
   getSongsByArtist,
   getSongsByGenre,
+  getSongsByName,
   getSongByID,
   addArtist,
   addSong,

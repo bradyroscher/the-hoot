@@ -51,9 +51,15 @@ class App extends Component {
             path="/song/:artistID"
             component={(props) => <SongList {...props} />}
           />
+          <Route
+            path="/songID/:id"
+            component={(props) => <SongPage {...props} />}
+          />
+          <Route
+            path="/artist-add/:genre"
+            component={(props) => <AddArtistPage {...props} />}
+          />
           <Route path="/artist/:id" component={() => <ArtistPage />} />
-          <Route path="/song/:id" component={() => <SongPage />} />
-          <Route path="/artist/add" component={() => <AddArtistPage />} />
           <Route path="/song/add" component={() => <AddSongPage />} />
         </Switch>
       </div>
