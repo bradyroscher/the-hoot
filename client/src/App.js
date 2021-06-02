@@ -16,14 +16,15 @@ class App extends Component {
     super()
     this.state = {
       genres: [
-        { name: 'Hip-Hop', img: '' },
-        { name: 'R&B', img: '' },
-        { name: 'Pop', img: '' },
-        { name: 'Rock', img: '' },
-        { name: 'Jazz', img: '' },
-        { name: 'Soul', img: '' },
-        { name: 'Electronic', img: '' },
-        { name: 'Country', img: '' }
+        { name: 'Hip-Hop', img: 'https://i.imgur.com/KJv60wu.png' },
+        { name: 'R&B', img: 'https://i.imgur.com/xBGXmeS.png' },
+        { name: 'Pop', img: 'https://i.imgur.com/WtXipHB.png' },
+        { name: 'Rock', img: 'https://i.imgur.com/aimEKwb.png' },
+        { name: 'Jazz', img: 'https://i.imgur.com/DAG2O0v.png' },
+        { name: 'Soul', img: 'https://i.imgur.com/hTkw6cG.png' },
+        { name: 'Electronic', img: 'https://i.imgur.com/8OSa28n.png' },
+        { name: 'Country', img: 'https://i.imgur.com/ZcwYxlR.png' },
+        { name: 'Reggaetón', img: 'https://i.imgur.com/pp0EL5N.png' }
       ]
     }
   }
