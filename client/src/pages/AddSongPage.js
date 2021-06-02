@@ -36,11 +36,16 @@ class AddSongPage extends Component {
   }
 
   handleChangeAlbum = async (e) => {
-    await this.setState({ Album: e.target.value })
+    await this.setState({ album: e.target.value })
   }
 
   handleChangeCoverArt = async (e) => {
     await this.setState({ coverArt: e.target.value })
+  }
+
+  handleChangeDescription = async (e) => {
+    await this.setState({ description: e.target.value })
+    console.log(this.state)
   }
 
   render() {
@@ -75,11 +80,14 @@ class AddSongPage extends Component {
           <h3>Tell us a little about it!</h3>
           <TextInput
             type="text"
-            value={this.state.coverArt}
-            onChange={this.handleChangeCoverArt}
-            name={'name'}
-            placeholder={'Link'}
+            value={this.state.description}
+            onChange={this.handleChangeDescription}
+            name={'description'}
+            placeholder={'Enter description here...'}
           />
+          <div>
+            <button>Submit</button>
+          </div>
         </form>
       </div>
     )
