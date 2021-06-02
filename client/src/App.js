@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       genres: [
         { name: 'Hip-Hop', img: 'https://i.imgur.com/KJv60wu.png' },
-        { name: 'R&B', img: 'https://i.imgur.com/xBGXmeS.png' },
+        { name: 'R&B', img: 'https://i.imgur.com/erEhGY3.png' },
         { name: 'Pop', img: 'https://i.imgur.com/WtXipHB.png' },
         { name: 'Rock', img: 'https://i.imgur.com/aimEKwb.png' },
         { name: 'Jazz', img: 'https://i.imgur.com/DAG2O0v.png' },
