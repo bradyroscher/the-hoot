@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Header from './components/Header'
+import Header from './components/Header'
 import GenrePage from './pages/GenrePage'
 import SongList from './pages/SongList'
 import ArtistList from './pages/ArtistList'
@@ -7,6 +7,7 @@ import ArtistPage from './pages/ArtistPage'
 import SongPage from './pages/SongPage'
 import AddArtistPage from './pages/AddArtistPage'
 import AddSongPage from './pages/AddSongPage'
+import SearchPage from './pages/SearchPage'
 // import BASE_URL from './globals'
 
 import './App.css'
@@ -35,6 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Switch>
           <Route
             exact
@@ -62,6 +64,10 @@ class App extends Component {
           <Route
             path="/song-add/:artistID"
             component={(props) => <AddSongPage {...props} />}
+          />
+          <Route
+            path="/search"
+            component={(props) => <SearchPage {...props} />}
           />
           <Route path="/artist/:id" component={() => <ArtistPage />} />
         </Switch>

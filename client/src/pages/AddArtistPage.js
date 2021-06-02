@@ -13,6 +13,7 @@ class AddArtistPage extends Component {
       description: ''
     }
   }
+
   postArtist = async (res, req) => {
     res = await axios.post(`${BASE_URL}/artist`, {
       name: this.state.name,
