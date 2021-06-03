@@ -44,7 +44,7 @@ class ArtistList extends Component {
             onClick={() => this.props.history.push(`/song/${artist._id}`)}
           >
             <div>{artist.name}</div>
-            <img src={artist.img} />
+            <img clasName="artist-image" src={artist.img} />
             <div> Popular Song: {artist.topSong} </div>
           </div>
         ))}

@@ -27,3 +27,9 @@
 .genre-logo {
   width: 100%;
 }
+
+.artist-image {
+  width: 15vw;
+  border: 5px solid black;
+  border-radius: 15px;
+}
