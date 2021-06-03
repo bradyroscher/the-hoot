@@ -53,11 +53,6 @@ class SongPage extends Component {
     this.postComment()
   }
 
-  deleteSong = async () => {
-    await axios.delete(`${BASE_URL}/song-delete/${this.state.song._id}`)
-    this.props.history.push('/')
-  }
-
   handleChange = async (e) => {
     await this.setState({ value: e.target.value })
     console.log(this.state.value)
@@ -90,7 +85,6 @@ class SongPage extends Component {
           />
           <button>Post</button>
         </form>
-        <button onClick={this.deleteSong}>DELETE</button>
       </div>
     )
   }
