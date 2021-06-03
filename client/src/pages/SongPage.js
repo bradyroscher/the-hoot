@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import TextInput from '../components/TextInput'
+import CommentCard from '../components/CommentCard'
 
 class SongPage extends Component {
   constructor() {
@@ -9,12 +10,14 @@ class SongPage extends Component {
     this.state = {
       song: [],
       comments: [],
-      value: ''
+      value: '',
+      songID: ''
     }
   }
 
   componentDidMount() {
     this.getSong()
+    this.getComment()
   }
 
   getSong = async () => {
@@ -22,21 +25,26 @@ class SongPage extends Component {
       `${BASE_URL}/songID/${this.props.match.params.id}`
     )
     this.setState({ song: res.data.song })
-    console.log(this.state.song)
+    this.setState({ songID: this.state.song._id })
+    console.log(this.state.songID)
   }
 
   getComment = async () => {
     const res = await axios.get(
-      `${BASE_URL}/song-comments/song/${this.state.song._id}`
+      `${BASE_URL}/song-comments/song/${this.props.match.params.id}`
     )
+    console.log(this.props.match.params.id)
     this.setState({ comments: res.data })
   }
 
   postComment = async (res, req) => {
     res = await axios.post(`${BASE_URL}/song-comments/add`, {
       text: this.state.value,
-      songID: this.state.song._id
+      songId: this.state.song._id
     })
+    this.getComment()
+    this.setState({ value: '' })
+    console.log('fired')
   }
 
   handleClick = async (e) => {
@@ -63,7 +71,12 @@ class SongPage extends Component {
         </div>
         <div>{this.state.song.description}</div>
         {this.state.comments.map((comment, index) => (
-          <div key={index}>{comment.text}</div>
+          <CommentCard
+            key={index}
+            text={comment.text}
+            id={comment.id}
+            getComment={this.getComment}
+          />
         ))}
         <form onSubmit={this.handleClick}>
           <TextInput

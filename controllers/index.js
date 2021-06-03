@@ -93,20 +93,20 @@ const getSongsByName = async (req, res) => {
   }
 }
 
-const getCommentBySong = async (res, req) => {
+const getCommentBySong = async (req, res) => {
   try {
-    const { songID } = req.params
-    const comments = await Song.find({ songID: songID })
+    const { songId } = req.params
+    const comments = await Comment.find({ songId: songId })
     if (!comments) {
-      return status(404).send("Can't find any comments")
+      return status(404).send("Can't find any songs")
     }
-    res.status(200).send(comments)
+    res.status(200).json(comments)
   } catch (error) {
     res.status(500).send(error.message)
   }
 }
 
-const postComment = async (res, req) => {
+const postComment = async (req, res) => {
   try {
     const comment = await new Comment(req.body)
     await comment.save()
@@ -116,6 +116,18 @@ const postComment = async (res, req) => {
   }
 }
 
+const deleteComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await Comment.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Comment deleted')
+    }
+    throw new Error('Comment not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const addArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -175,5 +187,6 @@ module.exports = {
   deleteArtist,
   deleteSong,
   getCommentBySong,
-  postComment
+  postComment,
+  deleteComment
 }
