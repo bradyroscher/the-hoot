@@ -5,3 +5,5 @@ class GenreCard extends Component {
     return <div></div>
   }
 }
+
+export default GenreCard

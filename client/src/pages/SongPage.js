@@ -22,6 +22,11 @@ class SongPage extends Component {
     console.log(this.state.song)
   }
 
+  deleteSong = async () => {
+    await axios.delete(`${BASE_URL}/song-delete/${this.state.song._id}`)
+    this.props.history.push('/')
+  }
+
   render() {
     return (
       <div>
@@ -30,6 +35,7 @@ class SongPage extends Component {
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
         <div>{this.state.song.description}</div>
+        <button onClick={this.deleteSong}>DELETE</button>
       </div>
     )
   }

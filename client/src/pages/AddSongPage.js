@@ -25,7 +25,7 @@ class AddSongPage extends Component {
       artistID: this.state.artistID,
       album: this.state.album,
       coverArt: this.state.coverArt,
-      genre: this.props.match.params.genre,
+      genre: this.state.genre,
       description: this.state.description
     })
     this.props.history.push('/')

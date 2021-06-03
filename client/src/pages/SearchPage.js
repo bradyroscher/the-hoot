@@ -14,12 +14,12 @@ class SearchPage extends Component {
   }
 
   getSongResults = async (res, req) => {
-    res = await axios.get(`${BASE_URL}/song/name/${this.state.search}`)
+    res = await axios.get(`${BASE_URL}/song-name/${this.state.search}`)
     console.log(res)
   }
 
   getArtistResults = async (res, req) => {
-    res = await axios.get(`${BASE_URL}/artist/name/${this.state.search}`)
+    res = await axios.get(`${BASE_URL}/artist-name/${this.state.search}`)
     console.log(res.data)
   }
 
