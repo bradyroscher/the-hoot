@@ -223,7 +223,7 @@ const editComment = async (req, res) => {
           res.status(500).send(err)
         }
         if (!comment) {
-          res.status(500).send('Comment not found!')
+          res.status(404).send('Comment not found!')
         }
         return res.status(200).json(comment)
       }
@@ -245,7 +245,7 @@ const editArtistComment = async (req, res) => {
           res.status(500).send(err)
         }
         if (!comment) {
-          res.status(500).send('Comment not found!')
+          res.status(404).send('Comment not found!')
         }
         return res.status(200).json(comment)
       }
