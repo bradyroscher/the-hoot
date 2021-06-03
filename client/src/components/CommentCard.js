@@ -7,25 +7,26 @@ class CommentCard extends Component {
   constructor() {
     super()
     this.state = {
-      text: this.props.text,
-      songID: this.props.songID
+      text: '',
+      editing: false
     }
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props.songID)
+    this.setState({ text: this.props.text })
   }
 
   deleteSong = async () => {
     await axios.delete(`${BASE_URL}/comment-delete/${this.props.id}`)
   }
 
-  updateComment = async (res, req) => {
-    res = await axios.post(`${BASE_URL}/edit-comment/${this.props.id}`, {
+  editComment = async (res, req) => {
+    res = await axios.put(`${BASE_URL}/edit-comment/${this.props.id}`, {
       text: this.state.text,
       songID: this.props.songID
     })
-    this.getComment()
+    this.props.getComment()
   }
 
   handleClickDelete = () => {
@@ -33,24 +34,48 @@ class CommentCard extends Component {
     this.props.getComment()
   }
 
+  handleChange = async (e) => {
+    await this.setState({ text: e.target.value })
+  }
+
+  handleClick = async (e) => {
+    e.preventDefault()
+    this.editComment()
+    this.handleEdit()
+  }
+
+  handleEdit = () => {
+    if (!this.state.editing) {
+      this.setState({ editing: true })
+      return
+    }
+    this.setState({ editing: false })
+  }
+
   render() {
+    const editing = this.state.editing
+    if (!editing) {
+      return (
+        <div>
+          <div>{this.props.text}</div>
+          <div>
+            <button onClick={this.handleEdit}>Edit</button>
+            <button onClick={this.handleClickDelete}>Delete</button>
+          </div>
+        </div>
+      )
+    }
     return (
       <div>
-        <div>{this.props.text}</div>
-        <div>
-          <button>Edit</button>
-          <button onClick={this.handleClickDelete}>Delete</button>
-        </div>
-        <div>
-          <form>
-            <TextInput
-              type="text"
-              value={this.state.text}
-              onChange={this.handleChange}
-              name={'comment'}
-            />
-          </form>
-        </div>
+        <form onSubmit={this.handleClick}>
+          <TextInput
+            type="text"
+            value={this.state.text}
+            onChange={this.handleChange}
+            name={'comment'}
+          />
+          <button>submit</button>
+        </form>
       </div>
     )
   }
