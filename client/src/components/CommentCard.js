@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import TextInput from '../components/TextInput'
 
 class CommentCard extends Component {
   constructor() {
@@ -39,6 +40,16 @@ class CommentCard extends Component {
         <div>
           <button>Edit</button>
           <button onClick={this.handleClickDelete}>Delete</button>
+        </div>
+        <div>
+          <form>
+            <TextInput
+              type="text"
+              value={this.state.text}
+              onChange={this.handleChange}
+              name={'comment'}
+            />
+          </form>
         </div>
       </div>
     )
