@@ -44,6 +44,11 @@ class SongPage extends Component {
     this.props.history.push('/')
   }
 
+  handleChange = async (e) => {
+    await this.setState({ value: e.target.value })
+    console.log(this.state.value)
+  }
+
   render() {
     return (
       <div>
