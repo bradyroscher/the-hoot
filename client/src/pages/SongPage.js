@@ -39,6 +39,11 @@ class SongPage extends Component {
     })
   }
 
+  handleClick = async (e) => {
+    e.preventDefault()
+    this.postComment()
+  }
+
   deleteSong = async () => {
     await axios.delete(`${BASE_URL}/song-delete/${this.state.song._id}`)
     this.props.history.push('/')
@@ -57,7 +62,10 @@ class SongPage extends Component {
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
         <div>{this.state.song.description}</div>
-        <form>
+        {this.state.comments.map((comment, index) => (
+          <div key={index}>{comment.text}</div>
+        ))}
+        <form onSubmit={this.handleClick}>
           <TextInput
             type="text"
             value={this.state.value}
@@ -65,6 +73,7 @@ class SongPage extends Component {
             name={'comment'}
             placeholder={'comment'}
           />
+          <button>Post</button>
         </form>
         <button onClick={this.deleteSong}>DELETE</button>
       </div>
