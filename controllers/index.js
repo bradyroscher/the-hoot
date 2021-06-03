@@ -86,7 +86,7 @@ const getSongsByGenre = async (req, res) => {
     if (!songs) {
       return status(404).send("Can't find any songs")
     }
-    res.status(500).send(songs)
+    res.status(200).send(songs)
   } catch (error) {
     res.status(500).send(error.message)
   }
@@ -99,7 +99,20 @@ const getSongsByName = async (req, res) => {
     if (!songs) {
       return status(404).send("Can't find any songs")
     }
-    res.status(500).send(songs)
+    res.status(200).send(songs)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
+const getCommentBySong = async (res, req) => {
+  try {
+    const { songID } = req.params
+    const comments = await Song.find({ songID: songID })
+    if (!comments) {
+      return status(404).send("Can't find any comments")
+    }
+    res.status(200).send(comments)
   } catch (error) {
     res.status(500).send(error.message)
   }

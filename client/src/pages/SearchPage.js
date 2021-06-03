@@ -15,12 +15,12 @@ class SearchPage extends Component {
 
   getSongResults = async (res, req) => {
     res = await axios.get(`${BASE_URL}/song-name/${this.state.search}`)
-    console.log(res)
+    this.setState({ songResults: res.data })
   }
 
   getArtistResults = async (res, req) => {
     res = await axios.get(`${BASE_URL}/artist-name/${this.state.search}`)
-    console.log(res.data)
+    this.setState({ artistResults: res.data })
   }
 
   handleClick = (e) => {
@@ -47,6 +47,25 @@ class SearchPage extends Component {
           />
           <button>SEARCH</button>
         </form>
+        {this.state.artistResults.map((artist, index) => (
+          <div
+            key={index}
+            onClick={() => this.props.history.push(`/song/${artist._id}`)}
+          >
+            <div>{artist.name}</div>
+            <img src={artist.img} />
+            <div> Popular Song: {artist.topSong} </div>
+          </div>
+        ))}
+        {this.state.songResults.map((song, index) => (
+          <div
+            key={index}
+            onClick={() => this.props.history.push(`/songID/${song._id}`)}
+          >
+            <div>{song.name}</div>
+            <img src={song.coverArt} />
+          </div>
+        ))}
       </div>
     )
   }
