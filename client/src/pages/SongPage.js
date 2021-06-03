@@ -76,6 +76,7 @@ class SongPage extends Component {
             key={index}
             text={comment.text}
             id={comment._id}
+            songID={this.props.match.params.id}
             getComment={this.getComment}
           />
         ))}

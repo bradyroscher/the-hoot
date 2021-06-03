@@ -6,10 +6,8 @@ class CommentCard extends Component {
   constructor() {
     super()
     this.state = {
-      song: [],
-      comments: [],
-      value: '',
-      songID: ''
+      text: this.props.text
+      songID: this.props.songID
     }
   }
 
