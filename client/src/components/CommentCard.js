@@ -18,14 +18,19 @@ class CommentCard extends Component {
   }
 
   deleteSong = async () => {
-    await axios.delete(`${BASE_URL}/comment-delete/${this.props.id}`)
+    await axios.delete(
+      `${BASE_URL}/${this.props.commentType}-delete/${this.props.id}`
+    )
   }
 
   editComment = async (res, req) => {
-    res = await axios.put(`${BASE_URL}/edit-comment/${this.props.id}`, {
-      text: this.state.text,
-      songID: this.props.songID
-    })
+    res = await axios.put(
+      `${BASE_URL}/edit-${this.props.commentType}/${this.props.id}`,
+      {
+        text: this.state.text,
+        songID: this.props.songID
+      }
+    )
     this.props.getComment()
   }
 

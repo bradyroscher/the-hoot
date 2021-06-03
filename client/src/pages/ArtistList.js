@@ -6,7 +6,10 @@ class ArtistList extends Component {
   constructor() {
     super()
     this.state = {
-      artists: []
+      artists: [],
+      comments: [],
+      value: '',
+      artistID: ''
     }
   }
 

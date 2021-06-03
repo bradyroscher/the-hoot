@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import CommentCard from '../components/CommentCard'
+import TextInput from '../components/TextInput'
 
 class SongList extends Component {
   constructor() {
@@ -8,20 +10,24 @@ class SongList extends Component {
     this.state = {
       songs: [],
       artistImg: '',
-      artistDescription: ''
+      artistDescription: '',
+      comments: [],
+      value: '',
+      artistID: ''
     }
   }
 
   componentDidMount() {
     this.getSongs()
     this.getArtist()
+    this.getComment()
+    console.log(this.props)
   }
 
   getSongs = async () => {
     const res = await axios.get(
       `${BASE_URL}/song/${this.props.match.params.artistID}`
     )
-    console.log(res)
     this.setState({ songs: res.data })
   }
 
@@ -31,7 +37,35 @@ class SongList extends Component {
     )
     this.setState({ artistImg: res.data.artist.img })
     this.setState({ artistDescription: res.data.artist.description })
-    console.log(res.data.artist)
+  }
+
+  getComment = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/artist-comments/artist/${this.props.match.params.artistID}`
+    )
+    console.log(this.props)
+    console.log(res.data)
+    this.setState({ comments: res.data })
+  }
+
+  postComment = async (res, req) => {
+    res = await axios.post(`${BASE_URL}/artist-comments/add`, {
+      text: this.state.value,
+      artistId: this.props.match.params.artistID
+    })
+    this.getComment()
+    this.setState({ value: '' })
+    console.log('fired')
+  }
+
+  handleClick = async (e) => {
+    e.preventDefault()
+    this.postComment()
+  }
+
+  handleChange = async (e) => {
+    await this.setState({ value: e.target.value })
+    console.log(this.state.value)
   }
 
   render() {
@@ -59,6 +93,26 @@ class SongList extends Component {
             </div>
           ))}
         </div>
+        {this.state.comments.map((comment, index) => (
+          <CommentCard
+            key={index}
+            text={comment.text}
+            id={comment._id}
+            songID={this.props.match.params.artistID}
+            getComment={this.getComment}
+            commentType="artist-comment"
+          />
+        ))}
+        <form onSubmit={this.handleClick}>
+          <TextInput
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+            name={'comment'}
+            placeholder={'comment'}
+          />
+          <button>Post</button>
+        </form>
       </div>
     )
   }

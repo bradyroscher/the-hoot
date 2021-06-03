@@ -73,6 +73,7 @@ class SongPage extends Component {
             id={comment._id}
             songID={this.props.match.params.id}
             getComment={this.getComment}
+            commentType="comment"
           />
         ))}
         <form onSubmit={this.handleClick}>

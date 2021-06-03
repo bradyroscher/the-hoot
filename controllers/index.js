@@ -1,6 +1,7 @@
 const Artist = require('../models/artist')
 const Song = require('../models/song')
 const Comment = require('../models/comment')
+const ArtistComment = require('../models/artistComments')
 
 const getArtistByGenre = async (req, res) => {
   try {
@@ -128,6 +129,42 @@ const deleteComment = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+
+const getArtistCommentByArtist = async (req, res) => {
+  try {
+    const { artistId } = req.params
+    const artistcomments = await ArtistComment.find({ artistId: artistId })
+    if (!artistcomments) {
+      return status(404).send("Can't find any songs")
+    }
+    res.status(200).json(artistcomments)
+  } catch (error) {
+    res.status(500).send(error.message)
+  }
+}
+
+const postArtistComment = async (req, res) => {
+  try {
+    const artistcomment = await new ArtistComment(req.body)
+    await artistcomment.save()
+    return res.status(201).json({ artistcomment })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const deleteArtistComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    const deleted = await ArtistComment.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Comment deleted')
+    }
+    throw new Error('Comment not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 const addArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -196,6 +233,28 @@ const editComment = async (req, res) => {
   }
 }
 
+const editArtistComment = async (req, res) => {
+  try {
+    const { id } = req.params
+    await ArtistComment.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true },
+      (err, comment) => {
+        if (err) {
+          res.status(500).send(err)
+        }
+        if (!comment) {
+          res.status(500).send('Comment not found!')
+        }
+        return res.status(200).json(comment)
+      }
+    )
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   getArtistByGenre,
   getArtistByName,
@@ -211,5 +270,9 @@ module.exports = {
   getCommentBySong,
   postComment,
   deleteComment,
-  editComment
+  editComment,
+  getArtistCommentByArtist,
+  postArtistComment,
+  deleteArtistComment,
+  editArtistComment
 }
