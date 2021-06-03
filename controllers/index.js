@@ -28,19 +28,6 @@ const getArtistByName = async (req, res) => {
   }
 }
 
-// const getArtistByID = async (req, res) => {
-//   try {
-//     const { id } = req.params
-//     const artist = await Artist.findById(id)
-//     if (!artist) {
-//       return res.status(404).send("Can't Find Artist")
-//     }
-//     return res.status(200).json(artist)
-//   } catch (error) {
-//     res.status(500).send(error.message)
-//   }
-// }
-
 const getArtistByID = async (req, res) => {
   try {
     const { id } = req.params
@@ -187,5 +174,6 @@ module.exports = {
   addSong,
   deleteArtist,
   deleteSong,
-  getCommentBySong
+  getCommentBySong,
+  postComment
 }

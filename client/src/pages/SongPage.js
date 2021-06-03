@@ -6,7 +6,9 @@ class SongPage extends Component {
   constructor() {
     super()
     this.state = {
-      song: []
+      song: [],
+      comments: [],
+      value: ''
     }
   }
 
@@ -20,6 +22,20 @@ class SongPage extends Component {
     )
     this.setState({ song: res.data.song })
     console.log(this.state.song)
+  }
+
+  getComment = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/song-comments/song/${this.state.song._id}`
+    )
+    this.setState({ comments: res.data })
+  }
+
+  postComment = async (res, req) => {
+    res = await axios.post(`${BASE_URL}/song-comments/add`, {
+      text: this.state.value,
+      songID: this.state.song._id
+    })
   }
 
   deleteSong = async () => {
