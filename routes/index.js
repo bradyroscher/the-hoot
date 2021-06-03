@@ -17,5 +17,6 @@ router.post('/song-comments/add', controllers.postComment)
 router.delete('/artitst-delete/:id', controllers.deleteArtist)
 router.delete('/song-delete/:id', controllers.deleteSong)
 router.delete('/comment-delete/:id', controllers.deleteComment)
+router.put('/edit-comment/:id', controllers.editComment)
 
 module.exports = router

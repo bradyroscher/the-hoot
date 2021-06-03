@@ -34,6 +34,7 @@ class SongPage extends Component {
       `${BASE_URL}/song-comments/song/${this.props.match.params.id}`
     )
     console.log(this.props.match.params.id)
+    console.log(res.data)
     this.setState({ comments: res.data })
   }
 
@@ -74,7 +75,7 @@ class SongPage extends Component {
           <CommentCard
             key={index}
             text={comment.text}
-            id={comment.id}
+            id={comment._id}
             getComment={this.getComment}
           />
         ))}

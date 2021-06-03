@@ -8,8 +8,12 @@ class CommentCard extends Component {
   }
 
   deleteSong = async () => {
-    await axios.delete(`${BASE_URL}/song-delete/${this.props.id}`)
-    this.props.history.push('/')
+    await axios.delete(`${BASE_URL}/comment-delete/${this.props.id}`)
+  }
+
+  handleClick = () => {
+    this.deleteSong()
+    this.props.getComment()
   }
 
   render() {
@@ -18,7 +22,7 @@ class CommentCard extends Component {
         <div>{this.props.text}</div>
         <div>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={this.handleClick}>Delete</button>
         </div>
       </div>
     )
