@@ -19,6 +19,14 @@ class CommentCard extends Component {
     await axios.delete(`${BASE_URL}/comment-delete/${this.props.id}`)
   }
 
+  updateComment = async (res, req) => {
+    res = await axios.post(`${BASE_URL}/edit-comment/${this.props.id}`, {
+      text: this.state.text,
+      songID: this.props.songID
+    })
+    this.getComment()
+  }
+
   handleClickDelete = () => {
     this.deleteSong()
     this.props.getComment()
