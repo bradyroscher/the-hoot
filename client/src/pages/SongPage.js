@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import TextInput from '../components/TextInput'
 
 class SongPage extends Component {
   constructor() {
@@ -51,6 +52,15 @@ class SongPage extends Component {
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
         <div>{this.state.song.description}</div>
+        <form>
+          <TextInput
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+            name={'comment'}
+            placeholder={'comment'}
+          />
+        </form>
         <button onClick={this.deleteSong}>DELETE</button>
       </div>
     )
