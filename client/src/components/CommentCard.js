@@ -3,6 +3,16 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 
 class CommentCard extends Component {
+  constructor() {
+    super()
+    this.state = {
+      song: [],
+      comments: [],
+      value: '',
+      songID: ''
+    }
+  }
+
   componentDidMount() {
     console.log(this.props)
   }
