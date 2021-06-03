@@ -1,5 +1,6 @@
 const Artist = require('../models/artist')
 const Song = require('../models/song')
+const Comment = require('../models/comment')
 
 const getArtistByGenre = async (req, res) => {
   try {
@@ -118,6 +119,16 @@ const getCommentBySong = async (res, req) => {
   }
 }
 
+const postComment = async (res, req) => {
+  try {
+    const comment = await new Comment(req.body)
+    await comment.save()
+    return res.status(201).json({ comment })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const addArtist = async (req, res) => {
   try {
     const artist = await new Artist(req.body)
@@ -175,5 +186,6 @@ module.exports = {
   addArtist,
   addSong,
   deleteArtist,
-  deleteSong
+  deleteSong,
+  getCommentBySong
 }
