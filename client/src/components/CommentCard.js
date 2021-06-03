@@ -6,7 +6,7 @@ class CommentCard extends Component {
   constructor() {
     super()
     this.state = {
-      text: this.props.text
+      text: this.props.text,
       songID: this.props.songID
     }
   }
@@ -19,7 +19,7 @@ class CommentCard extends Component {
     await axios.delete(`${BASE_URL}/comment-delete/${this.props.id}`)
   }
 
-  handleClick = () => {
+  handleClickDelete = () => {
     this.deleteSong()
     this.props.getComment()
   }
@@ -30,7 +30,7 @@ class CommentCard extends Component {
         <div>{this.props.text}</div>
         <div>
           <button>Edit</button>
-          <button onClick={this.handleClick}>Delete</button>
+          <button onClick={this.handleClickDelete}>Delete</button>
         </div>
       </div>
     )
