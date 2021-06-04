@@ -35,7 +35,11 @@ class ArtistList extends Component {
               className="artist-card"
             >
               <div className="name">{artist.name}</div>
-              <img className="artist-image" src={artist.img} />
+              <img
+                className="artist-image"
+                src={artist.img}
+                alt="https://i.imgur.com/hjuGAIA.jpg"
+              />
               <div> Popular Song: {artist.topSong} </div>
             </div>
           ))}

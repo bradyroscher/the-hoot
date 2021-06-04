@@ -70,7 +70,11 @@ class SongList extends Component {
       <div className="song-list">
         <div>
           <div className="title-name">{this.state.artistName}</div>
-          <img className="artist-page-image" src={this.state.artistImg} />
+          <img
+            className="artist-page-image"
+            src={this.state.artistImg}
+            alt="https://i.imgur.com/hjuGAIA.jpg"
+          />
           <div className="info">{this.state.artistDescription}</div>
           <div className="song-display">
             {this.state.songs.map((song, index) => (
@@ -80,7 +84,11 @@ class SongList extends Component {
                 className="song-card"
               >
                 <div className="name">{song.name}</div>
-                <img className="song-image" src={song.coverArt} />
+                <img
+                  className="song-image"
+                  src={song.coverArt}
+                  alt="https://i.imgur.com/nIbih28.png"
+                />
               </div>
             ))}
           </div>

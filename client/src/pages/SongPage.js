@@ -59,7 +59,11 @@ class SongPage extends Component {
         <div className="title-name">
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
-        <img className="song-page-image" src={this.state.song.coverArt} />
+        <img
+          className="song-page-image"
+          src={this.state.song.coverArt}
+          alt="https://i.imgur.com/nIbih28.png"
+        />
         <div className="info">{this.state.song.description}</div>
         <div className="center">
           <div className="comments-title">Comment Section</div>

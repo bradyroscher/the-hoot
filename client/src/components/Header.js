@@ -10,6 +10,7 @@ class Header extends Component {
             <img
               className="header-image"
               src="https://i.imgur.com/bpoo3zJ.png"
+              alt="OWL"
             />
           </NavLink>
           <h1 className="the-hoot">The Hoot</h1>
@@ -17,6 +18,7 @@ class Header extends Component {
             <img
               className="header-image"
               src="https://i.imgur.com/DTvL4Da.png"
+              alt="SEARCH"
             />
           </NavLink>
         </div>
