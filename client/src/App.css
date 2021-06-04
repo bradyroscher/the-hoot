@@ -87,11 +87,12 @@ html {
 .artist-div {
   display: flex;
   flex-wrap: wrap;
+  margin: auto;
 }
 
 .artist-image {
-  width: 18vw;
-  height: 18vh;
+  width: 19vw;
+  height: 19vh;
   border: 5px solid black;
   border-radius: 50px;
 }
@@ -100,11 +101,27 @@ html {
   border: 5px solid white;
 }
 
+.artist-card {
+  margin-left: 4vw;
+  margin-top: 2vw;
+}
+
+.title-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 60px;
+  padding: 30px;
+}
+
 .artist-page-image {
   width: 80vw;
   border-radius: 1000px;
   box-shadow: 10px 10px 10px black;
-  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.song-page-image {
+  width: 40vw;
+  box-shadow: 10px 10px 10px black;
   margin-bottom: 5vh;
 }
 
@@ -125,20 +142,53 @@ html {
   margin-bottom: 5vh;
 }
 
+.genre-info {
+  width: 60vw;
+  margin: auto;
+  font-size: 20px;
+  background-color: #545454;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 10px 10px 10px black;
+  margin-bottom: 5vh;
+}
+
+.add-info {
+  width: 40vw;
+  margin: auto;
+  font-size: 20px;
+  background-color: #545454;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 10px 10px 10px black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.search-info {
+  width: 30vw;
+  margin: auto;
+  font-size: 20px;
+  background-color: #545454;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 10px 10px 10px black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
 .song-display {
   display: flex;
   flex-wrap: wrap;
 }
 
 .song-card {
-  height: 300px;
-  width: 300px;
   cursor: pointer;
+  margin-left: 5vw;
 }
 
 .song-image {
-  height: 250px;
-  width: 250px;
+  width: 19vw;
 }
 
 .name {
@@ -173,6 +223,18 @@ html {
   border: 2px inset #545454;
 }
 
+.submit-button {
+  margin: 3px;
+  color: white;
+  background-color: #545454;
+  cursor: pointer;
+  border: 2px outset #8f8f8f;
+}
+
+.submit-button:hover {
+  border: 2px inset #8f8f8f;
+}
+
 .comment {
   padding: 10px;
 }
@@ -200,4 +262,67 @@ html {
 
 .text-input {
   width: 30vw;
+}
+
+.search-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.add-redirect {
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  width: 27vw;
+  display: flex;
+  cursor: pointer;
+  border: 2px solid black;
+  margin-top: 2vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+}
+
+.add-redirect:hover {
+  background-color: #545454;
+  border: 2px inset white;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.comments-title {
+  font-size: 30px;
+  font-family: 'Squada One', cursive;
+  text-decoration: underline;
+  margin-bottom: 5vh;
+}
+
+.artist-search {
+  cursor: pointer;
+  margin-bottom: 5vh;
+}
+
+.song-search {
+  margin-bottom: 8vh;
+}
+
+.search-artist-image {
+  width: 50vw;
+  box-shadow: 10px 10px 10px black;
+  border-radius: 1000px;
+}
+
+.search-song-image {
+  width: 30vw;
+  box-shadow: 10px 10px 10px black;
+}
+
+.search-description {
+  font-size: 25px;
+  font-family: 'Squada One', cursive;
 }

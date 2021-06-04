@@ -6,7 +6,7 @@ const ArtistComment = require('../models/artistComments')
 const getArtistByGenre = async (req, res) => {
   try {
     const { genre } = req.params
-    const artists = await Artist.find({ genre: genre })
+    const artists = await Artist.find({ genre: genre }).sort({ name: 'asc' })
     if (!artists) {
       return res.status(404).send("Can't find any artists by that name")
     }
@@ -58,7 +58,7 @@ const getSongByID = async (req, res) => {
 const getSongsByArtist = async (req, res) => {
   try {
     const { artistID } = req.params
-    const songs = await Song.find({ artistID: artistID })
+    const songs = await Song.find({ artistID: artistID }).sort({ name: 'asc' })
     if (!songs) {
       return status(404).send("Can't find any songs")
     }

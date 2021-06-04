@@ -52,7 +52,7 @@ class AddArtistPage extends Component {
     return (
       <div>
         <form onSubmit={this.handleClick}>
-          <h1>Tell us about you're artist!</h1>
+          <div className="add-info">Tell us about you're artist!</div>
           <h3> What's their name?</h3>
           <TextInput
             type="text"

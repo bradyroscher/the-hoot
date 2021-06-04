@@ -16,10 +16,12 @@ class GenrePage extends Component {
             padding: '30px'
           }}
         >
-          <div>Click on a Genre below to start exploring!</div>
-          <div>
-            Or do you have something in mind? Click on the search icon in the
-            top right!
+          <div className="genre-info">
+            <div>Click on a Genre below to start exploring!</div>
+            <div>
+              Or do you have something in mind? Click on the search icon at the
+              top of your screen!
+            </div>
           </div>
         </div>
         <div className="genres">

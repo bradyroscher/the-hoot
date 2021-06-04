@@ -72,7 +72,7 @@ class AddSongPage extends Component {
     return (
       <div>
         <form onSubmit={this.handleClick}>
-          <h1>Tell us a little about this song!</h1>
+          <div className="add-info">Tell us a little about this song!</div>
           <h3> What's it called?</h3>
           <TextInput
             type="text"
@@ -106,7 +106,7 @@ class AddSongPage extends Component {
             placeholder={'Enter description here...'}
           />
           <div>
-            <button>Submit</button>
+            <button className="submit-button">Submit</button>
           </div>
         </form>
       </div>

@@ -61,11 +61,14 @@ class SongPage extends Component {
   render() {
     return (
       <div>
-        <img src={this.state.song.coverArt} />
-        <div>
+        <div className="title-name">
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
+        <img className="song-page-image" src={this.state.song.coverArt} />
         <div className="info">{this.state.song.description}</div>
+        <div className="center">
+          <div className="comments-title">Comment Section</div>
+        </div>
         <div className="comments">
           {this.state.comments.map((comment, index) => (
             <CommentCard

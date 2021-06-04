@@ -84,7 +84,7 @@ class CommentCard extends Component {
             name={'comment'}
           />
           <div className="comment-buttons">
-            <button className="comment-button">submit</button>
+            <button className="comment-button">Submit</button>
           </div>
         </form>
       </div>

@@ -37,23 +37,33 @@ class SearchPage extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleClick}>
-          <TextInput
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange}
-            name={'name'}
-            placeholder={'Search'}
-          />
-          <button>SEARCH</button>
-        </form>
+        <div className="search-info">You can search by song or artist!</div>
+        <div className="search-field">
+          <div className="comment-card">
+            <form onSubmit={this.handleClick}>
+              <TextInput
+                type="text"
+                value={this.state.name}
+                onChange={this.handleChange}
+                name={'name'}
+                placeholder={'Search'}
+              />
+              <div className="comment-buttons">
+                <button className="comment-button">Search</button>
+              </div>
+            </form>
+          </div>
+        </div>
         {this.state.artistResults.map((artist, index) => (
           <div
             key={index}
             onClick={() => this.props.history.push(`/song/${artist._id}`)}
+            className="artist-search"
           >
-            <div>{artist.name}</div>
-            <img src={artist.img} />
+            <div className="name">
+              {artist.name} | {artist.genre}
+            </div>
+            <img className="search-artist-image" src={artist.img} />
             <div> Popular Song: {artist.topSong} </div>
           </div>
         ))}
@@ -61,9 +71,15 @@ class SearchPage extends Component {
           <div
             key={index}
             onClick={() => this.props.history.push(`/songID/${song._id}`)}
+            className="song-search"
           >
-            <div>{song.name}</div>
-            <img src={song.coverArt} />
+            <div className="name">
+              {song.name} by {song.artist}
+            </div>
+            <img className="search-song-image" src={song.coverArt} />
+            <div className="search-description">
+              Album: {song.album} | {song.genre}{' '}
+            </div>
           </div>
         ))}
       </div>

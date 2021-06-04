@@ -29,26 +29,30 @@ class ArtistList extends Component {
     console.log(this.state.artists)
     return (
       <div>
-        <div
-          onClick={() =>
-            this.props.history.push(
-              `/artist-add/${this.props.match.params.genre}`
-            )
-          }
-        >
-          Don't see you're favorite artist? Add them to this Genre!
-        </div>
         <div className="artist-div">
           {this.state.artists.map((artist, index) => (
             <div
               key={index}
               onClick={() => this.props.history.push(`/song/${artist._id}`)}
+              className="artist-card"
             >
-              <div>{artist.name}</div>
+              <div className="name">{artist.name}</div>
               <img className="artist-image" src={artist.img} />
               <div> Popular Song: {artist.topSong} </div>
             </div>
           ))}
+        </div>
+        <div className="center">
+          <div
+            onClick={() =>
+              this.props.history.push(
+                `/artist-add/${this.props.match.params.genre}`
+              )
+            }
+            className="add-redirect"
+          >
+            Don't see you're favorite artist? Add them to this Genre!
+          </div>
         </div>
       </div>
     )

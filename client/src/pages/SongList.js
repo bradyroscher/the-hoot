@@ -13,7 +13,8 @@ class SongList extends Component {
       artistDescription: '',
       comments: [],
       value: '',
-      artistID: ''
+      artistID: '',
+      artistName: ''
     }
   }
 
@@ -37,6 +38,7 @@ class SongList extends Component {
     )
     this.setState({ artistImg: res.data.artist.img })
     this.setState({ artistDescription: res.data.artist.description })
+    this.setState({ artistName: res.data.artist.name })
   }
 
   getComment = async () => {
@@ -72,17 +74,9 @@ class SongList extends Component {
     return (
       <div className="song-list">
         <div>
+          <div className="title-name">{this.state.artistName}</div>
           <img className="artist-page-image" src={this.state.artistImg} />
           <div className="info">{this.state.artistDescription}</div>
-          <div
-            onClick={() =>
-              this.props.history.push(
-                `/song-add/${this.props.match.params.artistID}`
-              )
-            }
-          >
-            Don't see you're favorite song by this artist? Add it!
-          </div>
           <div className="song-display">
             {this.state.songs.map((song, index) => (
               <div
@@ -95,6 +89,21 @@ class SongList extends Component {
               </div>
             ))}
           </div>
+        </div>
+        <div className="center">
+          <div
+            onClick={() =>
+              this.props.history.push(
+                `/song-add/${this.props.match.params.artistID}`
+              )
+            }
+            className="add-redirect"
+          >
+            Don't see you're favorite song by this artist? Add it!
+          </div>
+        </div>
+        <div className="center">
+          <div className="comments-title">Comment Section</div>
         </div>
         <div className="comments">
           {this.state.comments.map((comment, index) => (
