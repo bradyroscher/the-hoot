@@ -19,7 +19,6 @@ class AddSongPage extends Component {
   }
 
   postSong = async (res, req) => {
-    console.log(`${BASE_URL}/song`)
     res = await axios.post(`${BASE_URL}/song`, {
       name: this.state.name,
       artist: this.state.artist,
@@ -48,7 +47,6 @@ class AddSongPage extends Component {
     this.setState({ artist: res.data.artist.name })
     this.setState({ artistID: res.data.artist._id })
     this.setState({ genre: res.data.artist.genre })
-    console.log(this.state)
   }
 
   handleChangeName = async (e) => {
@@ -65,7 +63,6 @@ class AddSongPage extends Component {
 
   handleChangeDescription = async (e) => {
     await this.setState({ description: e.target.value })
-    console.log(this.state)
   }
 
   render() {

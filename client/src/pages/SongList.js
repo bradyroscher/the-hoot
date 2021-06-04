@@ -22,7 +22,6 @@ class SongList extends Component {
     this.getSongs()
     this.getArtist()
     this.getComment()
-    console.log(this.props)
   }
 
   getSongs = async () => {
@@ -45,8 +44,6 @@ class SongList extends Component {
     const res = await axios.get(
       `${BASE_URL}/artist-comments/artist/${this.props.match.params.artistID}`
     )
-    console.log(this.props)
-    console.log(res.data)
     this.setState({ comments: res.data })
   }
 
@@ -57,7 +54,6 @@ class SongList extends Component {
     })
     this.getComment()
     this.setState({ value: '' })
-    console.log('fired')
   }
 
   handleClick = async (e) => {
@@ -67,7 +63,6 @@ class SongList extends Component {
 
   handleChange = async (e) => {
     await this.setState({ value: e.target.value })
-    console.log(this.state.value)
   }
 
   render() {

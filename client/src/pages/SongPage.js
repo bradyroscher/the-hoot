@@ -26,15 +26,12 @@ class SongPage extends Component {
     )
     this.setState({ song: res.data.song })
     this.setState({ songID: this.state.song._id })
-    console.log(this.state.songID)
   }
 
   getComment = async () => {
     const res = await axios.get(
       `${BASE_URL}/song-comments/song/${this.props.match.params.id}`
     )
-    console.log(this.props.match.params.id)
-    console.log(res.data)
     this.setState({ comments: res.data })
   }
 
@@ -45,7 +42,6 @@ class SongPage extends Component {
     })
     this.getComment()
     this.setState({ value: '' })
-    console.log('fired')
   }
 
   handleClick = async (e) => {
@@ -55,7 +51,6 @@ class SongPage extends Component {
 
   handleChange = async (e) => {
     await this.setState({ value: e.target.value })
-    console.log(this.state.value)
   }
 
   render() {

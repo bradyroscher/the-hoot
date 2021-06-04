@@ -45,7 +45,6 @@ class AddArtistPage extends Component {
 
   handleChangeDescription = async (e) => {
     await this.setState({ description: e.target.value })
-    console.log(this.state)
   }
 
   render() {

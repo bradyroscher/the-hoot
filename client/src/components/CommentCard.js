@@ -13,7 +13,6 @@ class CommentCard extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.songID)
     this.setState({ text: this.props.text })
   }
 
