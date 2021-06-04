@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import CommentCard from '../components/CommentCard'
-import TextInput from '../components/TextInput'
+import BigTextInput from '../components/BigTextInput'
 
 class SongList extends Component {
   constructor() {
@@ -70,10 +70,10 @@ class SongList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="song-list">
         <div>
           <img className="artist-page-image" src={this.state.artistImg} />
-          <p>{this.state.artistDescription}</p>
+          <div className="info">{this.state.artistDescription}</div>
           <div
             onClick={() =>
               this.props.history.push(
@@ -83,35 +83,42 @@ class SongList extends Component {
           >
             Don't see you're favorite song by this artist? Add it!
           </div>
-          {this.state.songs.map((song, index) => (
-            <div
+          <div className="song-display">
+            {this.state.songs.map((song, index) => (
+              <div
+                key={index}
+                onClick={() => this.props.history.push(`/songID/${song._id}`)}
+                className="song-card"
+              >
+                <div className="name">{song.name}</div>
+                <img className="song-image" src={song.coverArt} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="comments">
+          {this.state.comments.map((comment, index) => (
+            <CommentCard
               key={index}
-              onClick={() => this.props.history.push(`/songID/${song._id}`)}
-            >
-              <div>{song.name}</div>
-              <img className="song-image" src={song.coverArt} />
-            </div>
+              text={comment.text}
+              id={comment._id}
+              songID={this.props.match.params.artistID}
+              getComment={this.getComment}
+              commentType="artist-comment"
+            />
           ))}
         </div>
-        {this.state.comments.map((comment, index) => (
-          <CommentCard
-            key={index}
-            text={comment.text}
-            id={comment._id}
-            songID={this.props.match.params.artistID}
-            getComment={this.getComment}
-            commentType="artist-comment"
-          />
-        ))}
-        <form onSubmit={this.handleClick}>
-          <TextInput
+        <form className="comment-form" onSubmit={this.handleClick}>
+          <BigTextInput
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
             name={'comment'}
-            placeholder={'comment'}
+            placeholder={'Leave a hoot...'}
           />
-          <button>Post</button>
+          <div className="hoot-holder">
+            <button className="comment-button">Hoot</button>
+          </div>
         </form>
       </div>
     )

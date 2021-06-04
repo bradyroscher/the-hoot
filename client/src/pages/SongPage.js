@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import TextInput from '../components/TextInput'
+import BigTextInput from '../components/BigTextInput'
 import CommentCard from '../components/CommentCard'
 
 class SongPage extends Component {
@@ -65,26 +65,30 @@ class SongPage extends Component {
         <div>
           {this.state.song.name} | {this.state.song.genre}{' '}
         </div>
-        <div>{this.state.song.description}</div>
-        {this.state.comments.map((comment, index) => (
-          <CommentCard
-            key={index}
-            text={comment.text}
-            id={comment._id}
-            songID={this.props.match.params.id}
-            getComment={this.getComment}
-            commentType="comment"
-          />
-        ))}
-        <form onSubmit={this.handleClick}>
-          <TextInput
+        <div className="info">{this.state.song.description}</div>
+        <div className="comments">
+          {this.state.comments.map((comment, index) => (
+            <CommentCard
+              key={index}
+              text={comment.text}
+              id={comment._id}
+              songID={this.props.match.params.id}
+              getComment={this.getComment}
+              commentType="comment"
+            />
+          ))}
+        </div>
+        <form className="comment-form" onSubmit={this.handleClick}>
+          <BigTextInput
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
             name={'comment'}
             placeholder={'comment'}
           />
-          <button>Post</button>
+          <div className="hoot-holder">
+            <button className="comment-button">Post</button>
+          </div>
         </form>
       </div>
     )

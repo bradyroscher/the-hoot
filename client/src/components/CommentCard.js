@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import TextInput from '../components/TextInput'
+import BigTextInput from '../components/TextInput'
 
 class CommentCard extends Component {
   constructor() {
@@ -61,25 +61,31 @@ class CommentCard extends Component {
     const editing = this.state.editing
     if (!editing) {
       return (
-        <div>
-          <div>{this.props.text}</div>
-          <div>
-            <button onClick={this.handleEdit}>Edit</button>
-            <button onClick={this.handleClickDelete}>Delete</button>
+        <div className="comment-card">
+          <div className="comment">{this.props.text}</div>
+          <div className="comment-buttons">
+            <button className="comment-button" onClick={this.handleEdit}>
+              Edit
+            </button>
+            <button className="comment-button" onClick={this.handleClickDelete}>
+              Delete
+            </button>
           </div>
         </div>
       )
     }
     return (
-      <div>
+      <div className="comment-card">
         <form onSubmit={this.handleClick}>
-          <TextInput
+          <BigTextInput
             type="text"
             value={this.state.text}
             onChange={this.handleChange}
             name={'comment'}
           />
-          <button>submit</button>
+          <div className="comment-buttons">
+            <button className="comment-button">submit</button>
+          </div>
         </form>
       </div>
     )

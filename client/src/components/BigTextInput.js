@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class TextInput extends Component {
+class BigTextInput extends Component {
   render() {
     return (
       <textarea
@@ -10,10 +10,11 @@ class TextInput extends Component {
         onChange={this.props.onChange}
         placeholder={this.props.placeholder}
         cols="51"
-        rows="1"
+        rows="4"
+        className="text-input"
       />
     )
   }
 }
 
-export default TextInput
+export default BigTextInput

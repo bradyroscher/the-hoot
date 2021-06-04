@@ -3,7 +3,6 @@ import Header from './components/Header'
 import GenrePage from './pages/GenrePage'
 import SongList from './pages/SongList'
 import ArtistList from './pages/ArtistList'
-import ArtistPage from './pages/ArtistPage'
 import SongPage from './pages/SongPage'
 import AddArtistPage from './pages/AddArtistPage'
 import AddSongPage from './pages/AddSongPage'
@@ -69,7 +68,6 @@ class App extends Component {
             path="/search"
             component={(props) => <SearchPage {...props} />}
           />
-          <Route path="/artist/:id" component={() => <ArtistPage />} />
         </Switch>
       </div>
     )

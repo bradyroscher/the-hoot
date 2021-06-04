@@ -5,11 +5,23 @@ class GenrePage extends Component {
     console.log(this.props.genres)
     return (
       <div>
-        <h1>Click on a Genre below to start exploring!</h1>
-        <h1>
-          Or do you have something in mind? Click on the search icon in the top
-          right!
-        </h1>
+        <div
+          style={{
+            width: '100vw',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '20px',
+            padding: '30px'
+          }}
+        >
+          <div>Click on a Genre below to start exploring!</div>
+          <div>
+            Or do you have something in mind? Click on the search icon in the
+            top right!
+          </div>
+        </div>
         <div className="genres">
           {this.props.genres.map((genre, index) => (
             <div

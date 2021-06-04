@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TextInput from '../components/TextInput'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
+import BigTextInput from '../components/BigTextInput'
 
 class AddArtistPage extends Component {
   constructor() {
@@ -77,7 +78,7 @@ class AddArtistPage extends Component {
             placeholder={'Song'}
           />
           <h3>Tell us a little about them!</h3>
-          <TextInput
+          <BigTextInput
             type="text"
             value={this.state.description}
             onChange={this.handleChangeDescription}
