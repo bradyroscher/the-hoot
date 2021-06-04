@@ -72,7 +72,7 @@ class SongList extends Component {
     return (
       <div>
         <div>
-          <img src={this.state.artistImg} />
+          <img className="artist-page-image" src={this.state.artistImg} />
           <p>{this.state.artistDescription}</p>
           <div
             onClick={() =>
@@ -89,7 +89,7 @@ class SongList extends Component {
               onClick={() => this.props.history.push(`/songID/${song._id}`)}
             >
               <div>{song.name}</div>
-              <img src={song.coverArt} />
+              <img className="song-image" src={song.coverArt} />
             </div>
           ))}
         </div>

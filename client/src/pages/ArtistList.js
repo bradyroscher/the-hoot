@@ -38,16 +38,18 @@ class ArtistList extends Component {
         >
           Don't see you're favorite artist? Add them to this Genre!
         </div>
-        {this.state.artists.map((artist, index) => (
-          <div
-            key={index}
-            onClick={() => this.props.history.push(`/song/${artist._id}`)}
-          >
-            <div>{artist.name}</div>
-            <img clasName="artist-image" src={artist.img} />
-            <div> Popular Song: {artist.topSong} </div>
-          </div>
-        ))}
+        <div className="artist-div">
+          {this.state.artists.map((artist, index) => (
+            <div
+              key={index}
+              onClick={() => this.props.history.push(`/song/${artist._id}`)}
+            >
+              <div>{artist.name}</div>
+              <img className="artist-image" src={artist.img} />
+              <div> Popular Song: {artist.topSong} </div>
+            </div>
+          ))}
+        </div>
       </div>
     )
   }

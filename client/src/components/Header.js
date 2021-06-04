@@ -6,13 +6,18 @@ class Header extends Component {
     return (
       <nav>
         <div className="header">
-          <NavLink to="/">Home</NavLink>
-          <div className="logo">
-            <img src="https://i.imgur.com/bpoo3zJ.png" />
-            The Hoot
-          </div>
+          <NavLink to="/">
+            <img
+              className="header-image"
+              src="https://i.imgur.com/bpoo3zJ.png"
+            />
+          </NavLink>
+          <h1 className="the-hoot">The Hoot</h1>
           <NavLink to="/search">
-            <img src="https://i.imgur.com/DTvL4Da.png" />
+            <img
+              className="header-image"
+              src="https://i.imgur.com/DTvL4Da.png"
+            />
           </NavLink>
         </div>
       </nav>
