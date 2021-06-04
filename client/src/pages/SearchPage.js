@@ -65,7 +65,7 @@ class SearchPage extends Component {
             <img
               className="search-artist-image"
               src={artist.img}
-              alt="https://i.imgur.com/nIbih28.png"
+              alt="artist"
             />
             <div> Popular Song: {artist.topSong} </div>
           </div>
@@ -79,11 +79,7 @@ class SearchPage extends Component {
             <div className="name">
               {song.name} by {song.artist}
             </div>
-            <img
-              className="search-song-image"
-              src={song.coverArt}
-              alt="https://i.imgur.com/hjuGAIA.jpg"
-            />
+            <img className="search-song-image" src={song.coverArt} alt="song" />
             <div className="search-description">
               Album: {song.album} | {song.genre}{' '}
             </div>

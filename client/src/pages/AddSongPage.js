@@ -28,7 +28,7 @@ class AddSongPage extends Component {
       genre: this.state.genre,
       description: this.state.description
     })
-    this.props.history.push('/')
+    this.props.history.push(`/song/${this.state.artistID}`)
   }
 
   handleClick = (e) => {

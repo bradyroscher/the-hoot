@@ -73,7 +73,7 @@ class SongList extends Component {
           <img
             className="artist-page-image"
             src={this.state.artistImg}
-            alt="https://i.imgur.com/hjuGAIA.jpg"
+            alt="artist"
           />
           <div className="info">{this.state.artistDescription}</div>
           <div className="song-display">
@@ -84,11 +84,7 @@ class SongList extends Component {
                 className="song-card"
               >
                 <div className="name">{song.name}</div>
-                <img
-                  className="song-image"
-                  src={song.coverArt}
-                  alt="https://i.imgur.com/nIbih28.png"
-                />
+                <img className="song-image" src={song.coverArt} alt="song" />
               </div>
             ))}
           </div>

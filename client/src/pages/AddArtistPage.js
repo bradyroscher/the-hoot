@@ -23,7 +23,7 @@ class AddArtistPage extends Component {
       topSong: this.state.topSong,
       description: this.state.description
     })
-    this.props.history.push('/')
+    this.props.history.push(`/artist/${this.props.match.params.genre}`)
   }
 
   handleClick = (e) => {

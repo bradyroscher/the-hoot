@@ -62,7 +62,7 @@ class SongPage extends Component {
         <img
           className="song-page-image"
           src={this.state.song.coverArt}
-          alt="https://i.imgur.com/nIbih28.png"
+          alt="song"
         />
         <div className="info">{this.state.song.description}</div>
         <div className="center">
